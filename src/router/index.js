@@ -1,37 +1,19 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import HomeView from '../views/HomeView.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    redirect: '/home',
-  },
-  {
-    path: '/home',
     name: 'home',
-    component: () => import(/* webpackChunkName: "home" */ '../views/home/home.vue')
+    component: HomeView
   },
   {
-    path: '/index',
-    name: 'index',
-    component: () => import(/* webpackChunkName: "index" */ '../views/index/index.vue')
-  },
-  {
-    path: '/MapContainer',
-    name: 'MapContainer',
-    component: () => import(/* webpackChunkName: "index" */ '../views/MapContainer/MapContainer.vue')
-  },
-  {
-    path: '/threeIndex',
-    name: 'threeIndex',
-    component: () => import(/* webpackChunkName: "index" */ '../views/three/threeIndex.vue')
-  },
-  {
-    path: '/threeTeo',
-    name: 'threeTeo',
-    component: () => import(/* webpackChunkName: "index" */ '../views/three/threeTeo.vue')
+    path: '/about',
+    name: 'about',
+    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   }
 ]
 

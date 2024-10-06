@@ -1,4 +1,4 @@
-# practice-items
+# demo_vue2
 
 ## Project setup
 ```
