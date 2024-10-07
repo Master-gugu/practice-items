@@ -1,6 +1,7 @@
 const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
   publicPath: process.env.NODE_ENV === 'production' ? '/practice-items/' : '/',
+  outputDir: 'docs',
   transpileDependencies: true,
   devServer: {
     open: false, // 启动服务后打开浏览器
