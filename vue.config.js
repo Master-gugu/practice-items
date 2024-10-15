@@ -1,3 +1,4 @@
+let config = require('./src/api/config/settings.js').config
 const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
   publicPath: process.env.NODE_ENV === 'production' ? '/practice-items/' : '/',
@@ -10,7 +11,7 @@ module.exports = defineConfig({
     https: false, // 使用http协议
     proxy: {
       '/api': {
-        target: 'http://192.168.2.33:9090', // 代理地址
+        target: config.base_url, // 代理地址
         pathRewrite: {
           '^/api': '' // 重写路径，在请求的时候去掉 /api
         },
@@ -19,3 +20,5 @@ module.exports = defineConfig({
     }
   }
 })
+
+
