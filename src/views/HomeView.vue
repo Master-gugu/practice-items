@@ -31,7 +31,7 @@
 <script>
 import { mapActions } from 'vuex';
 import * as USER from '@/store/mutation/mutation-user';
-import wsUtil from '@/utils/ws';
+
 export default {
   name: 'homePage',
   data () {
@@ -56,7 +56,7 @@ export default {
       }
   },
   created () {
-      console.log('wsUtil', wsUtil, wsUtil.createWs())
+      
   },
   methods: {
       ...mapActions([USER.USERLIST, USER.USERADD, USER.USERLOGIN]),
