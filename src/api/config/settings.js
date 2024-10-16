@@ -1,6 +1,6 @@
 var config = {
-    "base_url": "http://192.168.2.33:9090",
-    "ws_url": "ws://192.168.2.33:9090",
+    "base_url": "http://uyuzvw.natappfree.cc",
+    "ws_url": "ws://uyuzvw.natappfree.cc",
 }
 
 try {

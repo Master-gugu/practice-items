@@ -15,7 +15,8 @@ module.exports = defineConfig({
         pathRewrite: {
           '^/api': '' // 重写路径，在请求的时候去掉 /api
         },
-        changeOrigin: false, // 是否跨域
+        changeOrigin: true, // 是否跨域
+        // logLevel: 'debug',  // 添加此行
       }
     }
   }
