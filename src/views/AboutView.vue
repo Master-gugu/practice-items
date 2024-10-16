@@ -7,12 +7,9 @@
       </ul>
       页面二
       <el-input v-model="input" placeholder="请输入内容"></el-input>
-      <el-button type="info" round v-if="!ws" @click="initWs">开启{{ isConnet }}</el-button>
+      <el-button type="info" round v-if="!wsOpen" @click="initWs">开启{{ wsOpen }}</el-button>
       <el-button type="warning" round v-else @click="closeWs">离开</el-button>
       <el-button type="info" round @click="sendMsg">信息按钮2</el-button>
-      <el-button type="warning" round @click="openMap">跳转地图</el-button>
-      <el-button type="warning" round @click="openThree('/threeIndex')">跳转three1</el-button>
-      <el-button type="warning" round @click="openThree('/threeTeo')">跳转three2</el-button>
 
       <chatCom></chatCom>
   </div>
@@ -33,10 +30,7 @@ export default {
           rightTextShow: false,
           userId: '',
           worldMsg: [],
-          ws: null,
-          isConnet: false,
-          timeout: 2000,
-          timeoutObj: null,
+          wsOpen: false,
       }
   },
   created () {
@@ -67,7 +61,6 @@ export default {
               console.log('msginfo', res)
               // events.sort((a, b) => b.timestamp - a.timestamp);
               let arrMsg = []
-
               res.data.forEach((item, index) => {
                   item.msgList.forEach((msg, index) => {
                       arrMsg.push({
@@ -77,11 +70,9 @@ export default {
                       })
                   })
               })
-
               arrMsg.sort((a, b) => a.times - b.times).map(item => {
                   return item.times = dateStr(item.times);
               });
-
               this.message = arrMsg;
               console.log('处理信息', arrMsg)
           }
@@ -123,6 +114,7 @@ export default {
         console.log('wsUtil', wsUtil)
         wsUtil.createWs()
         this.initWsMsg()
+        this.wsOpen = !this.wsOpen
       },
       sendMsg() {
         wsUtil.sendMsg(this.input)
@@ -149,6 +141,7 @@ export default {
       // 关闭连接
       closeWs() {
         wsUtil.closeWs()
+        this.wsOpen = false
         this.$notify({
             title: '成功',
             message: '退出成功',
