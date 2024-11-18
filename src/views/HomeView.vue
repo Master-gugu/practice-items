@@ -90,6 +90,8 @@ export default {
                       localStorage.setItem('userId', userId);
 
                       this.$router.push('/about');
+                  }else if(res.code == 201){
+                      this.$message.error(res.message);
                   }
               }
           })
